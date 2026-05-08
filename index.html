@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloomGarden</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to BloomGarden</h1>
+        <p>Plant seeds, grow flowers, and create magical hybrids.</p>
+    </header>
+
+    <main>
+        <section class="seed-bundle">
+            <h2>My Seed Bundle</h2>
+            <div id="seed-container" class="card-container"></div>
+        </section>
+
+        <section class="garden">
+            <h2>My Garden</h2>
+            <button id="plant-seed-btn">Plant a Seed</button>
+            <div id="garden-container" class="card-container"></div>
+        </section>
+
+        <section class="breeding">
+            <h2>Flower Breeding</h2>
+            <p>Select two flowers to breed a hybrid.</p>
+            <button id="breed-btn">Breed Selected Flowers</button>
+            <div id="hybrid-container" class="card-container"></div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

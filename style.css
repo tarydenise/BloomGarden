@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f5f0;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background: #d8eacc;
+    border-bottom: 3px solid #b7d4a8;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+main {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.flower-card {
+    width: 140px;
+    padding: 15px;
+    border-radius: 10px;
+    background: white;
+    border: 2px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.flower-card:hover {
+    transform: scale(1.05);
+}
+
+.selected {
+    border-color: #6a9c78;
+    box-shadow: 0 0 10px #6a9c78;
+}
