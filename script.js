@@ -94,4 +94,46 @@ document.getElementById("plant-seed-btn").addEventListener("click", () => {
     renderFlower(newFlower, gardenContainer);
 });
 
-let selectedFlowers = [];
+let selectedFlowers = []; // To keep track of selected flowers for breeding
+
+// --- Breeding Logic ---
+
+function breedFlowers(f1, f2) {
+    // Combine traits
+    const hybrid = {
+        color: _.sample([f1.color, f2.color]),
+        pattern: _.sample([f1.pattern, f2.pattern]),
+        rarity: _.sample([f1.rarity, f2.rarity]),
+    };
+
+    return hybrid;
+}
+
+function determineRarity(r1, r2) {
+    if (r1 === "rare" && r2 === "rare") return "ultra-rare";
+    if (r1 === "uncommon" && r2 === "uncommon") return "rare";
+    if (r1 === "rare" || r2 === "rare") return "rare";
+    if (r1 === "uncommon" || r2 === "uncommon") return "uncommon";
+    return "common"; // two commons make an uncommon
+}
+
+// --- Add Breeding Button Logic ---
+document.getElementById("breed-btn").addEventListener("click", () => {
+    if (selectedFlowers.length !== 2) {
+        alert("Please select exactly 2 flowers to breed.");
+        return;
+    }
+
+    const [f1, f2] = selectedFlowers;
+
+    const hybrid = breedFlowers(f1, f2);
+
+    const hybridContainer = document.getElementById("hybrid-container");
+    renderFlower(hybrid, hybridContainer);
+
+    // Clear selection
+    selectedFlowers = [];
+    document.querySelectorAll(".selected").forEach(card => {
+        card.classList.remove("selected");
+    });
+});
