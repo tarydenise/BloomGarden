@@ -38,6 +38,8 @@ function renderSeedBundles() {
     });
 }
 
+renderSeedBundles();
+
 // --- Flower Trait Pools ---
 const colors = ["yellow", "pink", "blue", "purple", "white"];
 const patterns = ["solid", "striped", "dotted", "gradient"];
@@ -63,6 +65,26 @@ function renderFlower(flower, container) {
         <p>Rarity: ${flower.rarity}</p>
     `;
 
+    // Handle selection
+    card.addEventListener("click", () => {
+        // If already selected, unselect it
+        if (card.classList.contains("selected")) {
+            card.classList.remove("selected");
+            selectedFlowers = selectedFlowers.filter(f => f !== flower);
+            return;
+        }
+
+        // If selecting a new one but already have 2 selected, block it
+        if (selectedFlowers.length >= 2) {
+            alert("You can only select 2 flowers to breed.");
+            return;
+        }
+
+        // Select the flower
+        card.classList.add("selected");
+        selectedFlowers.push(flower);
+    });
+
     container.appendChild(card);
 }
 
@@ -72,4 +94,4 @@ document.getElementById("plant-seed-btn").addEventListener("click", () => {
     renderFlower(newFlower, gardenContainer);
 });
 
-renderSeedBundles();
+let selectedFlowers = [];
