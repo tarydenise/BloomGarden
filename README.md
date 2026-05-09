@@ -1,6 +1,6 @@
 # Overview
 
-BloomGarden is a small JavaScript program that lets users plant seeds, grow flowers, and create hybrids. It demonstrates basic JavaScript features such as DOM updates, recursion, and using an external library for randomization.
+BloomGarden is a small JavaScript program that lets users plant seeds, grow flowers, and create hybrids. It demonstrates basic JavaScript features such as DOM updates, recursion, and using an external library (Lodash) for randomization.
 
 Here is my YouTube video demonstration:
 
