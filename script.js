@@ -86,6 +86,7 @@ function renderFlower(flower, container) {
     });
 
     container.appendChild(card);
+    return card; // Return the card element
 }
 
 document.getElementById("plant-seed-btn").addEventListener("click", () => {
@@ -129,7 +130,11 @@ document.getElementById("breed-btn").addEventListener("click", () => {
     const hybrid = breedFlowers(f1, f2);
 
     const hybridContainer = document.getElementById("hybrid-container");
-    renderFlower(hybrid, hybridContainer);
+    const hybridCard = renderFlower(hybrid, hybridContainer);
+
+    // mark as hybrid and animate
+    hybridCard.classList.add("hybrid");
+    growFlower(hybridCard);
 
     // Clear selection
     selectedFlowers = [];
@@ -137,3 +142,14 @@ document.getElementById("breed-btn").addEventListener("click", () => {
         card.classList.remove("selected");
     });
 });
+
+// --- Add a Grow Function (Recursive) ---
+function growFlower(card, size = 0) {
+    if (size >= 100) return; // base case
+
+    card.style.transform = `scale(${size / 100})`;
+
+    setTimeout(() => {
+        growFlower(card, size + 10); // recursive call
+    }, 100);
+}
